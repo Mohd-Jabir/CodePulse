@@ -1,0 +1,177 @@
+/* General Layout */
+main {
+  padding-top: 80px; /* Adjust for navbar height */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Navbar Container */
+.navbar-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  z-index: 999;
+}
+
+/* Add the blur effect when the mobile menu is open */
+.navbar-container.mobile-open {
+  backdrop-filter: blur(10px);
+}
+/* Navbar.css */
+.logo {
+  letter-spacing: -3; /* remove any extra letter-spacing */
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#logo-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: url(#logo-gradient);
+}
+
+/* Nav Links */
+.nav-link {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+  font-size: 1.1rem;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: #000000;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Gradient text and underline on hover and active */
+.nav-link a:hover,
+.nav-link a.active {
+  /* Removed gradient text color effect */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  background-clip: unset;
+  font-weight: 700;
+  color: #000000; /* Ensures the text remains black */
+}
+
+/* Animated Underline */
+.nav-link a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(
+    90deg,
+    #7a42b1 0%,
+    #b248a3 50%,
+    #e95096 100%
+  );
+  transition: width 0.3s ease;
+}
+
+.nav-link a:hover::after,
+.nav-link a.active::after {
+  width: 100%;
+}
+
+
+/* Right Controls (mobile menu + icons) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Mobile Toggle Button */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+}
+
+/* Icons */
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .nav-link {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  /* The class to open the mobile menu */
+  .nav-link.mobile-open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}

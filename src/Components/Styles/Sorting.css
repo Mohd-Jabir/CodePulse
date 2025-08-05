@@ -1,0 +1,348 @@
+/*
+  Font Import: Poppins from Google Fonts
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* --- Root & Layout --- */
+.sort-visualizer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* A very light gray */
+  font-family: "Poppins", sans-serif;
+  color: #343a40; /* A dark gray for text */
+}
+
+.main-header {
+  text-align: center;
+}
+
+.main-header h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.5rem;
+}
+
+.main-header p {
+  color: #6c757d;
+  font-size: 1.3rem;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.controls-panel {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.controls-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: #ffffff;
+  padding: 1.75rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Softer shadow for a floating effect */
+}
+
+.visualization-area {
+  flex: 2;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* Increased min-height for more vertical space */
+  min-height: 900px;
+}
+
+/* --- Form & Controls Styling --- */
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-group label {
+  font-weight: 500;
+  white-space: nowrap;
+  flex-basis: 120px; /* Aligns labels nicely */
+  color: #495057;
+}
+
+.form-group input[type="range"] {
+  flex-grow: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: #e9ecef;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: black;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.form-group input[type="text"],
+.form-group select {
+  flex-grow: 1;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+  background-color: #ffffff;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: black;
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='none' stroke='%23495057' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  cursor: pointer;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.button-group button,
+#generate {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.button-primary {
+  background-color: black;
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+}
+
+.button-primary:hover {
+  background-color: #000000;
+  transform: translateY(-2px);
+}
+
+.button-secondary {
+  background-color: #e9ecef;
+  color: #495057;
+  border: 1px solid #ced4da;
+}
+
+.button-secondary:hover {
+  background-color: #dee2e6;
+  transform: translateY(-2px);
+}
+#vis,
+#ana {
+  /* Step 1: Apply the gradient as a background. */
+  background: linear-gradient(90deg, #9160c2 0%, #e95096 50%, #b248a3 100%);
+
+  /* Step 2: Use the background-clip property to clip the background to the text. */
+  /* This is a non-standard property, so a vendor prefix is needed for full browser support. */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Step 3: Make the text color transparent to reveal the background. */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* --- Visualization Area --- */
+.status-display {
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: #ced4da; /* A subtle warning color */
+  border: 1px solid #ced4da;
+  color: #000000;
+  font-weight: 500;
+}
+
+.status-text {
+  margin: 0;
+}
+
+.bars-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2px;
+  width: 100%;
+  max-width: 900px;
+  /* The key change is here. Increase this value to make the bars taller. */
+  min-height: 550px;
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  border: 1px solid #e9ecef;
+}
+
+.bar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  min-width: 10px;
+  max-width: 30px;
+  margin: 0 1px;
+}
+
+.bar {
+  width: 100%;
+  background: #3498db;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding-top: 5px;
+  box-sizing: border-box;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.bar span {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.bar-wrapper:hover .bar {
+  transform: scaleY(1.02); /* Subtle hover effect */
+}
+
+.bar-index {
+  font-size: 0.7rem;
+  color: #6c757d;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.placeholder-text {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+  align-self: center;
+}
+
+/* --- Complexity Card --- */
+.complexity-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.complexity-card h3 {
+  font-weight: 600;
+  color: #212529;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.complexity-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.complexity-card ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.complexity-card ul li strong {
+  color: #495057;
+}
+
+/* --- State Colors for Bars --- */
+.bar.compare {
+  background-color: #f39c12 !important;
+}
+
+.bar.swap {
+  background-color: #e74c3c !important;
+}
+
+.bar.sorted {
+  background-color: #2ecc71 !important;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .sort-visualizer-container {
+    padding: 1rem;
+  }
+
+  .controls-form,
+  .complexity-card,
+  .bars-container {
+    padding: 1rem;
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    flex-basis: auto;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}

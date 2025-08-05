@@ -1,0 +1,142 @@
+/*
+  Font Import: Poppins from Google Fonts
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Main container for the About page */
+.about-container {
+  font-family: "Poppins", sans-serif;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 3rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  color: #343a40;
+  line-height: 1.7;
+  border: 1px solid #e9ecef;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main heading for the page with gradient text */
+.about-container h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+
+  color: black;
+}
+#sp {
+  background: linear-gradient(90deg, #9160c2 0%, #e95096 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gradient line under the main heading */
+.about-container h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: linear-gradient(90deg, #9160c2 0%, #e95096 100%);
+  border-radius: 2px;
+}
+
+/* Styling for subheadings */
+.about-container h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #212529;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 4px solid #e95096;
+}
+
+/* Styling for general paragraphs */
+.about-container p {
+  font-size: 1.1rem;
+  color: #495057;
+  margin-bottom: 1.5rem;
+}
+
+/* Styling for the list section */
+.about-container .features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-container .features li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #495057;
+}
+
+/* Custom bullet point using a pseudo-element */
+.about-container .features li::before {
+  content: "🚀";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2rem;
+  /* Adjusting emoji to be aligned with the text */
+  line-height: 1.5;
+}
+
+.about-container .features li strong {
+  color: #9160c2;
+  font-weight: 600;
+}
+
+/* Styling for the creator section */
+.about-container .creator {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
+.about-container .creator h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000000;
+  border-left: none;
+  padding-left: 0;
+  margin-bottom: 0.5rem;
+}
+
+.about-container .creator p {
+  max-width: 600px;
+  margin: 0.5rem auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  .about-container h2 {
+    font-size: 2.5rem;
+  }
+  .about-container h3 {
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+  }
+  .about-container p,
+  .about-container .features li {
+    font-size: 1rem;
+  }
+  .about-container .features li::before {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,302 @@
+/*
+  Font Import: Poppins from Google Fonts
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* --- Main container for the stack visualizer --- */
+.stack {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+/* --- Title Section --- */
+.stack-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #000000;
+  text-align: center;
+}
+
+.stack-title span, #sp {
+  background: linear-gradient(90deg, #9160c2 0%, #e95096 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* --- Input and control section --- */
+.stack-input {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  width: 100%;
+}
+
+.stack-input input {
+  flex-grow: 1;
+  min-width: 150px;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.stack-input input:focus {
+  border-color: #9160c2;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(145, 96, 194, 0.2);
+}
+
+.stack-btn {
+  padding: 0.8rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stack-btn:hover {
+  background-color: #343a40;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.stack-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Visual container for the stack and output --- */
+.stack-visual-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* --- Stack display section --- */
+.stack-display {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  min-height: 400px;
+  max-height: 800px;
+  overflow-y: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.stack-item-container {
+  display: flex;
+  align-items: center;
+  width: 100px; /* Setting a fixed width */
+  position: relative; /* Setting position to relative */
+}
+
+.stack-item {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #3498db;
+  border: 2px solid #2980b9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.stack-top-label {
+  position: absolute;
+  right: -45px; /* Adjusted position to align correctly */
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000000;
+  white-space: nowrap;
+}
+
+/* --- Traverse output section --- */
+.stack-traverse-output {
+  flex: none;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  min-width: 300px;
+  width: 100%;
+}
+
+.stack-traverse-output h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 0.5rem;
+}
+
+.traverse-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 50px;
+  border: 1px dashed #ced4da;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.traverse-box {
+  background-color: #81baffff;
+  color: #ffffff;
+  border: 1px solid #2980b9;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .stack-input {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+  .stack-btn {
+    width: 100%;
+  }
+  .stack-visual-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stack-display {
+    max-width: 100%;
+  }
+}
+/* --- Main container for the stack info section --- */
+.stack-info-container {
+  font-family: "Poppins", sans-serif;
+  max-width: 800px;
+  width: 100%;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+  line-height: 1.6;
+}
+
+/* Main heading */
+.stack-info-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #212529;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Individual sections within the info container */
+.stack-section {
+  margin-bottom: 2rem;
+}
+
+/* Subheadings with emojis */
+.stack-section h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #212529;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stack-section h3::before {
+  /* This is where you can add emojis or other icons */
+  content: '';
+}
+
+/* Paragraphs */
+.stack-section p {
+  font-size: 1rem;
+  color: #495057;
+}
+
+.stack-section p strong {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Lists */
+.stack-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stack-section li {
+  font-size: 1rem;
+  color: #495057;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.stack-section li::before {
+  content: "•";
+  color: #9160c2;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.stack-section li strong {
+  color: #000000;
+}
+
+.stack-section li code {
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}

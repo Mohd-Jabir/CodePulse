@@ -1,0 +1,34 @@
+/*
+  Font Import: Poppins from Google Fonts (if needed for surrounding text)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Ensure html and body take full height for vh to work correctly */
+html, body, #root { /* Assuming #root is your main app container */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for the container of the loader */
+.loader-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Take full viewport height */
+  width: 100vw; /* Ensure it takes full viewport width */
+  background-color: #f8f9fa; /* Match the background of other components */
+  font-family: "Poppins", sans-serif; /* Consistent font */
+  position: fixed; /* Position fixed to cover the entire viewport */
+  top: 0;
+  left: 0;
+  z-index: 9999; /* Ensure it's on top of other content */
+}
+
+/* You might need to adjust the parent component's JSX to wrap the CircleLoader
+   in a div with class "loader-container" for these styles to apply.
+   Example:
+   <div className="loader-container">
+     <CircleLoader ... />
+   </div>
+*/

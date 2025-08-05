@@ -1,0 +1,135 @@
+/*
+ * This CSS file styles the DS component with a light theme.
+ * It uses a clean, modern design.
+ */
+
+/* Main container for the entire data structures page */
+.data-structures-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #333333; /* Dark text for contrast */
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+}
+
+/* Base styling for each of the five blocks (cards) */
+.Array,
+.Stack,
+.Queue,
+.LinkedList,
+.Tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+  text-align: center; /* Center-align the text */
+  background-color: #ffffff; /* White card background */
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 350px;
+  min-height: 450px; /* Ensures all cards are the same height */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Lighter, more subtle shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  justify-content: center; /* Vertically center the content */
+  gap: 1.5rem; /* Sets a consistent gap between all child elements */
+}
+
+/* Hover effect for the blocks to give them a lift */
+.Array:hover,
+.Stack:hover,
+.Queue:hover,
+.LinkedList:hover,
+.Tree:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+/* Styling for the images inside each block */
+.Array img,
+.Stack img,
+.Queue img,
+.LinkedList img,
+.Tree img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain; /* Ensures the entire image is visible within the fixed size */
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Image hover effect */
+.Array:hover img,
+.Stack:hover img,
+.Queue:hover img,
+.LinkedList:hover img,
+.Tree:hover img {
+  transform: scale(1.05);
+}
+
+/* Styling for the main heading */
+.Array h3,
+.Stack h3,
+.Queue h3,
+.LinkedList h3,
+.Tree h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0; /* Remove default margin */
+}
+
+/* Styling for the subheading/description */
+.Array h5,
+.Stack h5,
+.Queue h5,
+.LinkedList h5,
+.Tree h5 {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #666666; /* Dark gray for secondary text */
+  margin: 0; /* Remove default margin */
+}
+
+/* Styling for the anchor tag and button */
+.Array a,
+.Stack a,
+.Queue a,
+.LinkedList a,
+.Tree a {
+  text-decoration: none;
+}
+
+.Array button,
+.Stack button,
+.Queue button,
+.LinkedList button,
+.Tree button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease,
+    color 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+/*
+ * Media query for responsiveness on smaller screens (e.g., mobile devices)
+ */
+@media (max-width: 768px) {
+  .data-structures-main {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+}

@@ -1,0 +1,118 @@
+/*
+  Font Import: Poppins from Google Fonts
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Main footer container */
+.footer {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  color: #495057;
+  padding: 2rem 1rem; /* Reduced padding */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Container for the three main columns */
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1000px; /* Reduced max-width */
+  width: 100%;
+  padding-bottom: 1rem; /* Reduced padding */
+  border-bottom: 1px solid #dee2e6;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Reduced gap */
+}
+
+/* Individual footer column styling */
+.footer-column {
+  flex: 1;
+  min-width: 180px; /* Adjusted min-width */
+  text-align: center;
+}
+
+/* Heading for each footer column */
+.footer-heading {
+  font-size: 1.1rem; /* Reduced font size */
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 1rem; /* Reduced margin */
+}
+
+/* List of links */
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 0.5rem; /* Reduced margin */
+}
+
+.footer-list a {
+  text-decoration: none;
+  color: #495057;
+  font-size: 0.9rem; /* Reduced font size */
+  transition: color 0.2s ease-in-out;
+}
+
+.footer-list a:hover {
+  color: #000000;
+}
+
+/* Tagline section */
+.footer-tagline {
+  padding: 1.5rem 0; /* Reduced padding */
+  max-width: 600px;
+  text-align: center;
+}
+
+.footer-tagline p {
+  font-style: italic;
+  font-size: 1rem; /* Reduced font size */
+  color: #6c757d;
+  margin: 0;
+  font-weight: bold; /* Made tagline text bold */
+}
+
+/* Bottom section with copyright and meta info */
+.footer-bottom {
+  text-align: center;
+  padding-top: 0.5rem; /* Reduced padding */
+  max-width: 1000px; /* Reduced max-width */
+  width: 100%;
+  border-top: 1px solid #dee2e6;
+}
+
+.footer-bottom p {
+  margin: 0.5rem 0;
+  font-size: 0.8rem; /* Reduced font size */
+  color: #6c757d;
+}
+
+.footer-bottom strong {
+  font-weight: 600;
+}
+
+/* Gradient styling for the names */
+.gradient-text {
+  background: linear-gradient(90deg, #9160c2 0%, #e95096 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}

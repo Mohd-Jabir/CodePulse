@@ -1,0 +1,93 @@
+/*
+  Font Import: Poppins from Google Fonts
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Main container for the algorithm details */
+.algo-description {
+  font-family: "Poppins", sans-serif;
+  padding: 1.75rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  color: #343a40;
+}
+.alo
+    {
+  /* Step 1: Apply the gradient as a background. */
+  background: linear-gradient(90deg, #9160c2 0%, #e95096 50%, #b248a3 100%);
+
+  /* Step 2: Use the background-clip property to clip the background to the text. */
+  /* This is a non-standard property, so a vendor prefix is needed for full browser support. */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Step 3: Make the text color transparent to reveal the background. */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+}
+/* Heading for the section */
+.algo-description h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #212529;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Subheadings (e.g., "Definition", "Advantages") */
+.algo-description h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #212529;
+  position: relative;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Content paragraphs */
+.algo-description p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Styling for strong/bold text generated from `**` */
+.algo-description p strong {
+  color: #212529; /* Changed to black as requested */
+}
+
+/* Styling for list items generated from `-` */
+.algo-description ul {
+  list-style: disc; /* Use a standard disc for bullet points */
+  padding-left: 1.5rem;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.algo-description li {
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  padding-left: 0; /* Removed padding since we're using a standard list style */
+}
+
+/* Removed the ::before pseudo-element to fix the double bullet point issue */
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .algo-description {
+    padding: 1.25rem;
+  }
+  .algo-description h2 {
+    font-size: 1.5rem;
+  }
+  .algo-description h3 {
+    font-size: 1.1rem;
+  }
+  .algo-description p,
+  .algo-description li {
+    font-size: 0.95rem;
+  }
+}

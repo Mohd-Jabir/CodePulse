@@ -1,0 +1,342 @@
+/*
+  Font Import: Poppins from Google Fonts
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+.queue-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #000;
+}
+
+.queue-title span{
+  background: linear-gradient(90deg, #9160c2 0%, #e95096 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* --- Main container for the Queue Visualizer --- */
+.queue-container {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+/* --- Title Section --- */
+.queue-container h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.queue-container h2 span {
+  background: linear-gradient(90deg, #9160c2 0%, #e95096 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.queue-label {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #6c757d;
+  margin-bottom: 2rem;
+}
+
+/* --- Controls Section --- */
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  width: 100%;
+}
+
+.controls input {
+  flex-grow: 1;
+  min-width: 150px;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.controls input:focus {
+  border-color: #9160c2;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(145, 96, 194, 0.2);
+}
+
+.controls button {
+  padding: 0.8rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.controls button:hover {
+  background-color: #343a40;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.controls button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Queue Display Section --- */
+.queue-boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  min-height: 150px;
+  max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  position: relative;
+}
+
+.queue-box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.queue-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #81baffff;
+  border: 2px solid #2980b9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.queue-box-container .queue-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e95096;
+  position: absolute;
+  top: -25px; /* Adjust as needed */
+  margin: 0;
+}
+
+.queue-box-container:first-of-type .queue-label {
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.queue-box-container:last-of-type .queue-label {
+  right: 0;
+  transform: translateX(50%);
+}
+
+/* --- Traverse Output Section --- */
+.queue-traverse-output {
+  margin-top: 2rem;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  width: 100%;
+}
+
+.queue-traverse-output h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.traverse-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 50px;
+  border: 1px dashed #ced4da;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.traverse-box {
+  background-color: #81baffff;
+  color: #ffffff;
+  border: 1px solid #2980b9;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+  }
+  .controls button {
+    width: 100%;
+  }
+  .queue-boxes {
+    padding: 1rem;
+  }
+  .queue-traverse-output {
+    padding: 1rem;
+  }
+}
+/*
+  Font Import: Poppins from Google Fonts
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* --- Main container for the queue info section --- */
+.queue-info-container {
+  font-family: "Poppins", sans-serif;
+  max-width: 800px;
+  width: 100%;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+  line-height: 1.6;
+}
+
+/* Main heading */
+.queue-info-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #212529;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Gradient styling for the Queue text in the heading */
+#sp {
+  background: linear-gradient(90deg, #9160c2 0%, #e95096 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Individual sections within the info container */
+.queue-section {
+  margin-bottom: 2rem;
+}
+
+/* Subheadings */
+.queue-section h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #212529;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Paragraphs */
+.queue-section p {
+  font-size: 1rem;
+  color: #495057;
+}
+
+.queue-section p strong {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Lists */
+.queue-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.queue-section li {
+  font-size: 1rem;
+  color: #495057;
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.queue-section li::before {
+  content: "•";
+  color: #9160c2;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.queue-section li strong {
+  color: #000000;
+}
+
+.queue-section li code {
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* New CSS for the queue details section */
+.queue-details {
+  font-family: "Poppins", sans-serif;
+  max-width: 800px;
+  width: 100%;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+  line-height: 1.6;
+}
