@@ -12,7 +12,7 @@
   color: #000;
 }
 
-.linked-list span{
+.linked-list span {
   background: linear-gradient(90deg, #9160c2 0%, #e95096 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -29,7 +29,8 @@
 }
 
 /* --- Input and control sections --- */
-.linked-list-input, .linked-list-buttons {
+.linked-list-input,
+.linked-list-buttons {
   display: flex;
   gap: 1rem;
   margin-bottom: 2rem;
@@ -167,10 +168,10 @@
   word-wrap: break-word;
 }
 
-
 /* --- Responsive adjustments --- */
 @media (max-width: 768px) {
-  .linked-list-input, .linked-list-buttons {
+  .linked-list-input,
+  .linked-list-buttons {
     flex-direction: column;
     align-items: stretch;
     padding: 1rem;

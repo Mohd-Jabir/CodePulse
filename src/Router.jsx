@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import App from '../src/App.jsx';
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 
 const Home = lazy(() => import('../src/Components/Jsx/Home'));  
 const Visualizer = lazy(() => import('../src/Components/Jsx/Visualizer'));
@@ -13,7 +13,7 @@ const Stack = lazy(() => import('../src/Components/Jsx/Stack.jsx'));
 const Queue = lazy(() => import('../src/Components/Jsx/Queue.jsx'));
 const Array = lazy(() => import('../src/Components/Jsx/Array.jsx'));
 const LinkedList = lazy(() => import('../src/Components/Jsx/LinkedList.jsx'));
-const Router = createBrowserRouter([
+const Router = createHashRouter([
   {
     path: '/',
     element: <App />,

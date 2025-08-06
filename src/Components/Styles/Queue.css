@@ -1,6 +1,3 @@
-/*
-  Font Import: Poppins from Google Fonts
-*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 .queue-title {
@@ -11,7 +8,7 @@
   color: #000;
 }
 
-.queue-title span{
+.queue-title span {
   background: linear-gradient(90deg, #9160c2 0%, #e95096 100%);
   -webkit-background-clip: text;
   background-clip: text;
