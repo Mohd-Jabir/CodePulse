@@ -252,12 +252,8 @@ const Tree = () => {
       </div>
 
       <div className="Tree-button">
-        <button onClick={handleInsert} className="Tree-btn">
-          Insert
-        </button>
-        <button onClick={handleDelete} className="Tree-btn">
-          Delete
-        </button>
+        <button onClick={handleInsert} className="Tree-btn">Insert</button>
+        <button onClick={handleDelete} className="Tree-btn">Delete</button>
         <button
           onClick={() => {
             treeRef.current = null;
@@ -277,10 +273,7 @@ const Tree = () => {
         <button onClick={() => handleTraverse("preorder")} className="Tree-btn">
           Preorder
         </button>
-        <button
-          onClick={() => handleTraverse("postorder")}
-          className="Tree-btn"
-        >
+        <button onClick={() => handleTraverse("postorder")} className="Tree-btn">
           Postorder
         </button>
       </div>
@@ -318,15 +311,9 @@ const Tree = () => {
       {/* Traversal Outputs */}
       <div className="Tree-traverse-results">
         <h2>Traversal Outputs</h2>
-        <p>
-          <strong>Inorder:</strong> {inorderRes.join(" -> ")}
-        </p>
-        <p>
-          <strong>Preorder:</strong> {preorderRes.join(" -> ")}
-        </p>
-        <p>
-          <strong>Postorder:</strong> {postorderRes.join(" -> ")}
-        </p>
+        <p><strong>Inorder:</strong> {inorderRes.join(" -> ")}</p>
+        <p><strong>Preorder:</strong> {preorderRes.join(" -> ")}</p>
+        <p><strong>Postorder:</strong> {postorderRes.join(" -> ")}</p>
       </div>
     </section>
   );
