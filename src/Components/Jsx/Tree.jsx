@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 // TreeNode renders a circle with label and animation
 const TreeNode = ({ x, y, value, highlight, inserted, removed, onRemove }) => {
   const ref = useRef();
+
   // insertion animation
   useEffect(() => {
     if (inserted) {
@@ -17,7 +18,7 @@ const TreeNode = ({ x, y, value, highlight, inserted, removed, onRemove }) => {
     }
   }, [inserted]);
 
-  // highlight animation: change fill to red then back
+  // highlight animation
   useEffect(() => {
     if (highlight) {
       const tl = gsap.timeline();
@@ -28,7 +29,7 @@ const TreeNode = ({ x, y, value, highlight, inserted, removed, onRemove }) => {
     }
   }, [highlight]);
 
-  // removal animation: slower fade-out and shrink
+  // removal animation
   useEffect(() => {
     if (removed) {
       gsap.to(ref.current, {
@@ -66,6 +67,12 @@ const TreeNode = ({ x, y, value, highlight, inserted, removed, onRemove }) => {
       </text>
     </g>
   );
+};
+
+// Utility: Get depth of tree for dynamic height
+const getTreeDepth = (node) => {
+  if (!node) return 0;
+  return 1 + Math.max(getTreeDepth(node.left), getTreeDepth(node.right));
 };
 
 const Tree = () => {
@@ -173,7 +180,7 @@ const Tree = () => {
     rebuild(null, null);
   };
 
-  // traversal with recording result and slow incremental update
+  // Traversals with highlight
   const handleTraverse = async (order) => {
     if (!treeRef.current) return;
     const sequence = [];
@@ -202,12 +209,11 @@ const Tree = () => {
     };
     dfs[order](treeRef.current);
 
-    // clear relevant result before starting
+    // Clear result
     if (order === "inorder") setInorderRes([]);
     if (order === "preorder") setPreorderRes([]);
     if (order === "postorder") setPostorderRes([]);
 
-    // animate highlight and update displayed sequence one by one
     const currentNodes = [...nodes];
     const tempSeq = [];
     for (let val of sequence) {
@@ -218,19 +224,24 @@ const Tree = () => {
         if (order === "inorder") setInorderRes([...tempSeq]);
         if (order === "preorder") setPreorderRes([...tempSeq]);
         if (order === "postorder") setPostorderRes([...tempSeq]);
-        await new Promise((res) => setTimeout(res, 2000)); // slower pause
+        await new Promise((res) => setTimeout(res, 2000));
       }
     }
     setHighlightId(null);
   };
+
+  // Compute tree height for dynamic SVG height
+  const treeDepth = getTreeDepth(treeRef.current);
+  const canvasHeight = 100 + treeDepth * 80;
 
   return (
     <section>
       <div>
         <h6 className="Tree-heading" tabIndex="-1">
           Tree <span> Visualizer</span>
-        </h6>{" "}
+        </h6>
       </div>
+
       <div className="Tree-input">
         <input
           type="number"
@@ -239,6 +250,7 @@ const Tree = () => {
           placeholder="Enter a number"
         />
       </div>
+
       <div className="Tree-button">
         <button onClick={handleInsert} className="Tree-btn">
           Insert
@@ -273,7 +285,8 @@ const Tree = () => {
         </button>
       </div>
 
-      <svg width="100%" height="500" className="Tree-canvas">
+      {/* Dynamic Height SVG */}
+      <svg width="100%" height={canvasHeight} className="Tree-canvas">
         {nodes.map(
           (n) =>
             n.parentX != null && (
@@ -288,7 +301,6 @@ const Tree = () => {
               />
             )
         )}
-
         {nodes.map((n) => (
           <TreeNode
             key={n.id}
@@ -303,7 +315,7 @@ const Tree = () => {
         ))}
       </svg>
 
-      {/* Traversal Results Display */}
+      {/* Traversal Outputs */}
       <div className="Tree-traverse-results">
         <h2>Traversal Outputs</h2>
         <p>
@@ -315,92 +327,6 @@ const Tree = () => {
         <p>
           <strong>Postorder:</strong> {postorderRes.join(" -> ")}
         </p>
-      </div>
-      <div className="bst-info-container">
-        <h2>
-          About <span id="sp">Binary Search Tree (BST)</span>
-        </h2>
-
-        <div className="bst-section">
-          <h3>Definition:</h3>
-          <p>
-            A <strong>Binary Search Tree</strong> is a binary tree data
-            structure in which each node has at most two children, and for every
-            node:
-            <br />
-            &nbsp;&nbsp;• All values in its left subtree are{" "}
-            <strong>less than</strong> the node’s value.
-            <br />
-            &nbsp;&nbsp;• All values in its right subtree are{" "}
-            <strong>greater than</strong> the node’s value.
-          </p>
-        </div>
-
-        <div className="bst-section">
-          <h3>Basic Operations:</h3>
-          <ul>
-            <li>
-              <strong>insert(x)</strong> – Insert element <code>x</code> at the
-              correct position
-            </li>
-            <li>
-              <strong>delete(x)</strong> – Remove element <code>x</code>,
-              rebalancing subtrees
-            </li>
-            <li>
-              <strong>search(x)</strong> – Returns node containing{" "}
-              <code>x</code> or <code>null</code>
-            </li>
-            <li>
-              <strong>traverse()</strong> – Walk the tree in-order, pre-order,
-              or post-order
-            </li>
-          </ul>
-        </div>
-
-        <div className="bst-section">
-          <h3>Time Complexities:</h3>
-          <ul>
-            <li>
-              <strong>Search:</strong> O(h) average, O(n) worst-case
-            </li>
-            <li>
-              <strong>Insert:</strong> O(h) average, O(n) worst-case
-            </li>
-            <li>
-              <strong>Delete:</strong> O(h) average, O(n) worst-case
-            </li>
-            <li>
-              where <code>h</code> is the height of the tree
-            </li>
-          </ul>
-        </div>
-
-        <div className="bst-section">
-          <h3>Advantages:</h3>
-          <ul>
-            <li>Allows fast lookup, insertion, and deletion when balanced</li>
-            <li>In-order traversal produces sorted order of elements</li>
-            <li>Can be extended to self-balancing trees (AVL, Red-Black)</li>
-          </ul>
-        </div>
-
-        <div className="bst-section">
-          <h3>Disadvantages:</h3>
-          <ul>
-            <li>Performance degrades to O(n) if the tree becomes skewed</li>
-            <li>Requires extra logic or rotations to stay balanced</li>
-            <li>Storage overhead for child pointers</li>
-          </ul>
-        </div>
-
-        <div className="bst-section">
-          <h3>Memory Usage:</h3>
-          <p>
-            <strong>Space Complexity:</strong> O(n) for storing <code>n</code>{" "}
-            nodes
-          </p>
-        </div>
       </div>
     </section>
   );
