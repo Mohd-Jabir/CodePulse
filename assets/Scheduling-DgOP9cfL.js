@@ -1,4 +1,4 @@
-import{r as f,j as e}from"./index-i_XjV6bq.js";import{g as X}from"./index-CH_iu5NA.js";const Y=({algo:j})=>{const[N,T]=f.useState("");f.useEffect(()=>{switch(j){case"FCFS":T(`### 🚀 First-Come, First-Served (FCFS)
+import{r as f,j as e}from"./index-B6ULaNUE.js";import{g as X}from"./index-CH_iu5NA.js";const Y=({algo:j})=>{const[N,T]=f.useState("");f.useEffect(()=>{switch(j){case"FCFS":T(`### 🚀 First-Come, First-Served (FCFS)
 
 **Definition:
 FCFS executes processes in the exact order they arrive, like a queue at a ticket counter. It is a **non-preemptive** algorithm.
