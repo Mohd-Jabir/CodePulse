@@ -8,7 +8,7 @@ const About = lazy(() => import('../src/Components/Jsx/About.jsx'));
 const Sorting = lazy(() => import('../src/Components/Jsx/Sorting'));
 const Scheduling = lazy(() => import('../src/Components/Jsx/Scheduling'));
 const DS = lazy(() => import('../src/Components/Jsx/DS'));
-const Tree = lazy(() => import('../src/Components/Jsx/Tree.jsx'));
+const Tree=lazy(()=>import('../src/Components/Jsx/Tree.jsx'));
 const Stack = lazy(() => import('../src/Components/Jsx/Stack.jsx'));
 const Queue = lazy(() => import('../src/Components/Jsx/Queue.jsx'));
 const Array = lazy(() => import('../src/Components/Jsx/Array.jsx'));
